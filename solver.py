@@ -64,7 +64,9 @@ class Solver():
         w.writerow(['--bus section'])
         w.writerow(['i', 'v', 'theta', 'b'])
         for b in self.data.raw.buses.values():
-            vm = 0.5 * (b.nvhi + b.nvlo)
+            vhi = min(b.nvhi, b.evhi)
+            vlo = max(b.nvlo, b.evlo)
+            vm = 0.5 * (vhi + vlo)
             w.writerow([b.i, vm, 0.0, 0.0])
 
     def write_sol1_generator_section(self, w):
@@ -88,7 +90,9 @@ class Solver():
         w.writerow(['--bus section'])
         w.writerow(['i', 'v', 'theta', 'b'])
         for b in self.data.raw.buses.values():
-            vm = 0.5 * (b.evhi + b.evlo)
+            vhi = min(b.nvhi, b.evhi)
+            vlo = max(b.nvlo, b.evlo)
+            vm = 0.5 * (vhi + vlo)
             w.writerow([b.i, vm, 0.0, 0.0])
 
     def write_sol2_generator_section(self, w, k):
