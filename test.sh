@@ -27,9 +27,10 @@ sol_dir=$case_dir
 tlim1=600
 tlim2=2700
 smeth=0
-python MyPython1.py "$con" "$inl" "$raw" "$rop" $tlim1 $smeth
+nmod='case2'
+python MyPython1.py "$con" "$inl" "$raw" "$rop" $tlim1 $smeth $nmod
 cp "solution1.txt" "$sol_dir/$sol1"
-python MyPython2.py "$con" "$inl" "$raw" "$rop" $tlim2 $smeth
+python MyPython2.py "$con" "$inl" "$raw" "$rop" $tlim2 $smeth $nmod
 cp "solution2.txt" "$sol_dir/$sol2"
 rm "solution1.txt"
 rm "solution2.txt"
