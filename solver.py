@@ -45,7 +45,7 @@ delta
 '''
 
 # built in imports
-import os, sys, shutil, csv, time, StringIO, numpy, copy
+import os, sys, shutil, csv, time, StringIO
 
 # GOComp modules - this should be visible on the GOComp evaluation system
 import data
